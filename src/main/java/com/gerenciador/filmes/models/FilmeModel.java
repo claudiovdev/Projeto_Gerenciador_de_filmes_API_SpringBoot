@@ -1,6 +1,7 @@
 package com.gerenciador.filmes.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.gerenciador.filmes.enums.FilmeEstado;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "TB_FILMES")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FilmeModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -27,9 +29,12 @@ public class FilmeModel implements Serializable {
     @Column(nullable = false, length = 100)
     private String urlFoto;
 
+    private String dtLancamento;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     @Column(nullable = false)
-    private LocalDateTime dtLancamento;
+    private LocalDateTime dtCadastro;
+
 
     @Column(nullable = false, length = 250)
     private String descricao;
