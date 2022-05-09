@@ -16,13 +16,14 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "TB_FILMES")
-@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class FilmeModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID filmeId;
+
     @Column(nullable = false, length = 50)
     private String titulo;
 

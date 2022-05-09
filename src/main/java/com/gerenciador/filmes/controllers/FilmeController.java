@@ -1,5 +1,6 @@
 package com.gerenciador.filmes.controllers;
 
+import com.gerenciador.filmes.dtos.FilmeDto;
 import com.gerenciador.filmes.models.FilmeModel;
 import com.gerenciador.filmes.services.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class FilmeController {
     public ResponseEntity<List<FilmeModel>> buscandoTodosOsFilmes(){
         return filmeService.findAll();
     }
-    
+
+    @PostMapping("/filme")
+    public ResponseEntity<Object> criarFilme(@RequestBody FilmeDto filmeDto){
+        return filmeService.save(filmeDto);
+    }
 }

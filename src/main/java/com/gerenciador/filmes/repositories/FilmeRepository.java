@@ -10,4 +10,5 @@ import java.util.UUID;
 @Repository
 public interface FilmeRepository extends JpaRepository<FilmeModel, UUID> {
 
+    boolean existsByTitulo(String titulo);
 }
